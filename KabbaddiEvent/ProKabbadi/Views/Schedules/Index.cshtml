@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KabbaddiEvent.Schedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <h2>Pro-Kabaddi Schedule  </h2>
+
+    <button> @Html.ActionLink("Re-Generate Schedule", "GererateScheduleForKabbaddi")</button>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Team 1
+        </th>
+        <th>
+            Team 2
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayGround.GroundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Day)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamA.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamB.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayGround.GroundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+    </tr>
+}
+
+</table>
+
